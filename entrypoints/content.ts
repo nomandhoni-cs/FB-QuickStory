@@ -43,7 +43,7 @@ export default defineContentScript({
 
           console.log("false");
           // end of the function
-        }, 0);
+        }, 500);
       }
     };
 

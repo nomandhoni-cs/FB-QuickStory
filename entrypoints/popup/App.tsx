@@ -58,6 +58,19 @@ function App() {
           </svg>
         </a>
       </p>
+      <h4>Want to contribute to this project?</h4>
+      <p>
+        This project is open-source and you can contribute to it by <br />
+        <a
+          href="https://github.com/nomandhoni-cs/FB-QuickStory"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          submitting a pull request
+        </a>
+        <br />
+        Or Creating an Issue you're facing.
+      </p>
     </>
   );
 }
