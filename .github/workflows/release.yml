@@ -1,0 +1,78 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to release'
+        required: true
+        default: 'main'
+
+permissions:
+  contents: write  # Grant write access to contents (including releases)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      # Setup Node and pnpm (specify pnpm version)
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 'latest'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+          cache: 'pnpm'
+          
+      # Get the version from package.json
+      - name: Get version from package.json
+        id: get_version
+        run: |
+          VERSION=$(jq -r .version package.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Build and zip the extensions
+      - name: Zip extensions
+        run: |
+          pnpm zip
+          pnpm zip:firefox
+
+      # List output directory for debugging
+      - name: List output directory
+        run: ls -la ./.output/
+
+      # Create GitHub Release
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: "v${{ env.VERSION }}"
+          release_name: "FB QuickStory v${{ env.VERSION }}"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Pass the token here
+
+      # Install GitHub CLI
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
+      # Upload all ZIP files in the output directory
+      - name: Upload ZIP files to release
+        run: |
+          for zip in ./.output/*.zip; do
+            echo "Uploading $zip"
+            gh release upload "v${{ env.VERSION }}" "$zip" --clobber
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure the token is set
