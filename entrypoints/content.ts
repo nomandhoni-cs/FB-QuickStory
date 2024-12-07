@@ -22,6 +22,9 @@ export default defineContentScript({
               "video/*,image/*,image/heif,image/heic"
             );
             console.log("Modified file input to accept video files.");
+
+            // Add event listener to preview the video when selected
+            fileInput.addEventListener("change", handleFileSelect);
           } else {
             console.warn("File input not found.");
           }
@@ -37,9 +40,56 @@ export default defineContentScript({
           } else {
             console.warn("Photo story div not found.");
           }
+
           console.log("false");
           // end of the function
         }, 0);
+      }
+    };
+
+    // Function to handle file selection and show video preview
+    const handleFileSelect = (event: Event) => {
+      const fileInput = event.target as HTMLInputElement;
+      const file = fileInput?.files?.[0];
+
+      if (file && file.type.startsWith("video")) {
+        // Use MutationObserver to detect the preview container when available
+        const observer = new MutationObserver(() => {
+          const previewContainer = document.querySelector<HTMLElement>(
+            '[aria-label="Preview"] > div:nth-child(2)'
+          );
+
+          if (previewContainer) {
+            // Create the video element
+            const videoPreview = document.createElement("video");
+            videoPreview.controls = true;
+            const videoURL = URL.createObjectURL(file);
+            videoPreview.src = videoURL;
+
+            // Apply styles to ensure video retains its natural size
+            previewContainer.style.display = "flex";
+            previewContainer.style.justifyContent = "center";
+            previewContainer.style.alignItems = "center";
+            previewContainer.style.height = "100%"; // Ensure the container has height to center vertically
+
+            // Clear any previous content and add the video preview
+            previewContainer.innerHTML = "";
+            previewContainer.appendChild(videoPreview);
+
+            // Add CSS to prevent cropping and maintain video size
+            videoPreview.style.maxWidth = "100%";
+            videoPreview.style.maxHeight = "100%";
+            videoPreview.style.objectFit = "contain"; // Ensure video fits within its container without being cropped
+
+            console.log("Video preview added.");
+            observer.disconnect(); // Stop observing once the preview is added
+          }
+        });
+
+        // Start observing the document for changes
+        observer.observe(document.body, { childList: true, subtree: true });
+      } else {
+        console.warn("Selected file is not a video.");
       }
     };
 
