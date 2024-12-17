@@ -57,7 +57,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: "v${{ env.VERSION }}"
-          release_name: "FB QuickStory v${{ env.VERSION }}"
+          release_name: "QuickStory v${{ env.VERSION }}"
           draft: false
           prerelease: false
         env:
