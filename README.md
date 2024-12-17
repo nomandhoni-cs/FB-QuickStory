@@ -1,8 +1,9 @@
 
 ![blob-scene-haikei 1 (2)](https://github.com/user-attachments/assets/c6f67704-21bd-4784-98cc-1360a59dbd5d)
-
-
 **Post Video Stories on Facebook from Desktop**
+
+[![FB QuickStory Post Video](https://github.com/user-attachments/assets/b47c079d-413e-4a86-972e-1e05f35c5d40)](https://chromewebstore.google.com/detail/fb-quickstory-post-video/dgepepjfdcnpeakmlodopdcomhldeelf)
+
 
 ## Description
 
