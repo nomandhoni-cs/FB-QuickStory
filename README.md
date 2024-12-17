@@ -1,4 +1,5 @@
-![blob-scene-haikei 1](https://github.com/user-attachments/assets/c6cd3d6a-e402-4fca-9b5e-baf79b7f7a8b)
+
+![blob-scene-haikei 1 (2)](https://github.com/user-attachments/assets/c6f67704-21bd-4784-98cc-1360a59dbd5d)
 
 
 **Post Video Stories on Facebook from Desktop**
