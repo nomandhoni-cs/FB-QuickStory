@@ -60,7 +60,7 @@ export default defineContentScript({
         // Use MutationObserver to detect the preview container when available
         const observer = new MutationObserver(() => {
           const previewContainer = document.querySelector<HTMLElement>(
-            '[aria-label="Preview"] > div:nth-child(2)'
+            '[aria-label="Preview"] > div:nth-child(1)'
           );
 
           if (previewContainer) {
