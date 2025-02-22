@@ -1,78 +1,254 @@
-import wxtLogo from "/wxt.svg";
-import "./App.css";
+// import React from "react";
+import RandomHeadline from "@/componets/RandomHeadline";
+import {
+  Download,
+  Eye,
+  // Brain,
+  Activity,
+  Settings,
+  Heart,
+  Shield,
+  Zap,
+  Timer,
+  Clock,
+  ListTodo,
+  Github,
+} from "lucide-react";
 
-function App() {
+export default function Page() {
   return (
-    <>
-      <div>
-        <a href="https://wxt.dev" target="_blank">
-          <img src={wxtLogo} className="logo" alt="WXT logo" />
-        </a>
+    <div className="min-h-screen bg-black text-white p-4 overflow-x-hidden">
+      <div className="max-w-[2000px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(100px,auto)] gap-4">
+          {/* Hero Message */}
+          <div className="p-8 sm:col-span-2 lg:col-span-4 bg-gradient-to-r from-green-500 to-emerald-700 rounded-xl">
+            <RandomHeadline />
+            <p className="text-xl text-white/90 mb-6">
+              Join 5,000+ professionals who trust Blink Eye for their digital
+              wellness
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://blinkeye.app/en?ref=quick_story_whatnew"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg flex items-center px-6 py-3 bg-white text-green-600 hover:bg-green-50 rounded-lg transition-colors font-semibold"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download Blink Eye
+              </a>
+              <a
+                href="https://github.com/nomandhoni-cs/blink-eye"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg flex items-center px-6 py-3 bg-black/30 hover:bg-black/40 text-white rounded-lg transition-colors font-semibold border border-white/10"
+              >
+                <Github className="mr-2 h-5 w-5" />
+                Star on GitHub
+              </a>
+            </div>
+          </div>
+
+          {/* Video Section */}
+          <div className="p-6 sm:col-span-2 lg:col-span-2 row-span-2 bg-zinc-900 rounded-xl border border-green-500/20">
+            <div className="aspect-video w-full">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/YrLZ-eT9k78"
+                title="Blink Eye Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              />
+            </div>
+          </div>
+          {/* Eye Protection - Moved up */}
+          <div className="p-6 sm:col-span-2 bg-zinc-900 rounded-xl border border-green-500/20">
+            <Shield className="w-10 h-10 text-green-500 mb-4" />
+            <h2 className="text-3xl font-bold mb-4 text-white">
+              Eye Protection First
+            </h2>
+            <p className="text-gray-300 mb-4 text-xl">
+              Prevent Computer Vision Syndrome (CVS) with our scientifically
+              proven approach to digital eye care. Our intelligent system helps
+              you maintain healthy eyes during long computer sessions.
+            </p>
+            <ul className="space-y-3 text-gray-300 text-lg">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Reduce eye strain and fatigue
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Prevent long-term vision problems
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Stay productive without compromising eye health
+              </li>
+            </ul>
+          </div>
+
+          {/* Smart Break Reminders - Moved up */}
+          <div className="p-6 bg-zinc-900 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-colors">
+            <Eye className="w-10 h-10 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              Smart Break Reminders
+            </h3>
+            <p className="text-gray-300 text-lg">
+              Follow the 20-20-20 rule to prevent eye strain and maintain
+              healthy vision
+            </p>
+          </div>
+
+          <div className="p-6 bg-zinc-900 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-colors">
+            <Clock className="w-10 h-10 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              Screen Time Tracking
+            </h3>
+            <p className="text-gray-300 text-lg">
+              Monitor and manage your daily screen usage for better eye health
+            </p>
+          </div>
+
+          <div className="p-6 bg-zinc-900 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-colors row-span-2">
+            <Activity className="w-10 h-10 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              Track Your Progress
+            </h3>
+            <p className="text-gray-300 mb-4 text-xl">
+              Comprehensive usage statistics to maintain a healthy digital
+              balance
+            </p>
+            <ul className="space-y-2 text-gray-300 text-lg">
+              <li className="flex items-center gap-2">
+                <Timer className="w-4 h-4 text-green-500" />
+                Daily screen time tracking
+              </li>
+              <li className="flex items-center gap-2">
+                <Chart className="w-4 h-4 text-green-500" />
+                Weekly progress reports
+              </li>
+              <li className="flex items-center gap-2">
+                <Zap className="w-4 h-4 text-green-500" />
+                Productivity insights
+              </li>
+            </ul>
+          </div>
+
+          {/* TODO List Feature */}
+          <div className="p-6 sm:col-span-2 bg-zinc-900 rounded-xl border border-green-500/20">
+            <ListTodo className="w-10 h-10 text-green-500 mb-4" />
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Task Management
+            </h2>
+            <p className="text-gray-300 mb-4 text-xl">
+              Stay organized and productive with our built-in task management
+              system. Create, track, and complete tasks while maintaining
+              healthy screen time habits.
+            </p>
+            <ul className="space-y-3 text-gray-300 text-lg">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Create and manage tasks effortlessly
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Set task priorities and deadlines
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Track completion with visual progress indicators
+              </li>
+            </ul>
+          </div>
+
+          <div className="p-6 bg-zinc-900 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-colors">
+            <Settings className="w-10 h-10 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              Fully Customizable
+            </h3>
+            <p className="text-gray-300 text-lg">
+              Personalize timers, themes, and notifications
+            </p>
+          </div>
+
+          <div className="p-6 bg-zinc-900 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-colors">
+            <Heart className="w-10 h-10 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold mb-2 text-white">
+              5,000+ Happy Users
+            </h3>
+            <p className="text-gray-300 text-lg">
+              Join our growing community of healthy professionals
+            </p>
+          </div>
+
+          {/* Open Source Section */}
+          <div className="p-6 sm:col-span-2 bg-zinc-900 rounded-xl border border-green-500/20">
+            <Github className="w-10 h-10 text-green-500 mb-4" />
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Open Source and Free Forever
+            </h2>
+            <p className="text-gray-300 mb-4 text-xl">
+              Blink Eye is proudly open source. Join our community, contribute,
+              and help make digital wellness accessible to everyone.
+            </p>
+            <a
+              href="https://github.com/nomandhoni-cs/blink-eye"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
+            >
+              <Github className="mr-2 h-4 w-4" />
+              Star on GitHub
+            </a>
+          </div>
+
+          {/* Download Section */}
+          <div className="p-8 sm:col-span-2 lg:col-span-4 bg-gradient-to-r from-green-500 to-emerald-700 rounded-xl">
+            <h2 className="text-4xl font-bold mb-4 text-white text-center">
+              Available on All Platforms
+            </h2>
+            <p className="text-gray-200 mb-4 text-center text-2xl">
+              Download Blink Eye for your preferred operating system
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center items-center">
+              <a
+                href="https://blinkeye.app/en?ref=quick_story_whatnew&platform=windows"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors border-2 border-amber-50 text-2xl"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Windows
+              </a>
+              <a
+                href="https://blinkeye.app/en?ref=quick_story_whatnew&platform=macos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors border-2 border-amber-50 text-2xl"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                macOS
+              </a>
+              <a
+                href="https://blinkeye.app/en?ref=quick_story_whatnew&platform=linux"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors border-2 border-amber-50 text-2xl"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Linux
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>FB QuickStory</h1>
-      <h3>Follow Me on Social Media</h3>
-      <p className="read-the-docs">
-        <a
-          href="https://github.com/nomandhoni-cs/FB-QuickStory"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg
-            role="img"
-            className="normal-svg"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>GitHub</title>
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-          </svg>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/nomandhoni/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg
-            role="img"
-            className="normal-svg"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>LinkedIn</title>
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-        </a>
-        <a
-          href="https://buymeacoffee.com/nomandhoni"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg
-            role="img"
-            fill="#FFDD00"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Buy Me A Coffee</title>
-            <path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.683-6.663 1.024-9.995l.215-2.087a.484.484 0 01.39-.426c.402-.078.787-.212 1.074-.518.455-.488.546-1.124.385-1.766zm-1.478.772c-.145.137-.363.201-.578.233-2.416.359-4.866.54-7.308.46-1.748-.06-3.477-.254-5.207-.498-.17-.024-.353-.055-.47-.18-.22-.236-.111-.71-.054-.995.052-.26.152-.609.463-.646.484-.057 1.046.148 1.526.22.577.088 1.156.159 1.737.212 2.48.226 5.002.19 7.472-.14.45-.06.899-.13 1.345-.21.399-.072.84-.206 1.08.206.166.281.188.657.162.974a.544.544 0 01-.169.364zm-6.159 3.9c-.862.37-1.84.788-3.109.788a5.884 5.884 0 01-1.569-.217l.877 9.004c.065.78.717 1.38 1.5 1.38 0 0 1.243.065 1.658.065.447 0 1.786-.065 1.786-.065.783 0 1.434-.6 1.499-1.38l.94-9.95a3.996 3.996 0 00-1.322-.238c-.826 0-1.491.284-2.26.613z" />
-          </svg>
-        </a>
-      </p>
-      <h4>Want to contribute to this project?</h4>
-      <p>
-        This project is open-source and you can contribute to it by <br />
-        <a
-          href="https://github.com/nomandhoni-cs/FB-QuickStory"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          submitting a pull request
-        </a>
-        <br />
-        Or Creating an Issue you're facing.
-      </p>
-    </>
+    </div>
   );
 }
 
-export default App;
+function Chart(props: any) {
+  return <Activity {...props} />;
+}
