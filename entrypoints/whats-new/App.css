@@ -1,0 +1,33 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo {
+  height: 5em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #316FF6);
+}
+.read-the-doc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #316FF6;
+  cursor: pointer;
+}
+.normal-svg{
+  fill: #ffffff;
+}
+svg{
+    height: 32px;
+      width: 32px;
+      margin: 0 0.8em;
+}
